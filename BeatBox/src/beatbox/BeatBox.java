@@ -19,7 +19,7 @@ public class BeatBox {
     JTextField userMessage;
     ArrayList<JCheckBox> checkboxList = new ArrayList<>();
     JList incomingList;
-    Vector<String> listVector = new Vector<String>();
+    Vector<String> listVector = new Vector<>();
     
     Sequencer sequencer;
     Sequence sequence;
@@ -29,7 +29,7 @@ public class BeatBox {
     int nextNum;
     ObjectOutputStream out;
     ObjectInputStream in;
-    HashMap<String, boolean[]> otherSeqsMap = new HashMap<String, boolean[]>();
+    HashMap<String, boolean[]> otherSeqsMap = new HashMap<>();
      
     String[] instrumentNames = {
         "Bass Drum", "Closed Hi-Hat", "Open Hi-Hat", "Acoustic Snare", "Crash Cymbal", "Hand Clap",
@@ -40,14 +40,7 @@ public class BeatBox {
     int[] instruments = {35, 42, 46, 38, 49, 39, 50, 60, 70, 72, 64, 56, 58, 47, 67, 63};
     
     public static void main(String[] args) {
-        String name;
-        try {
-            name = args[0];
-        }
-        catch(Exception ex) {
-            name = "Guest";
-        }
-        
+        String name = JOptionPane.showInputDialog("Enter Your Name");        
         new BeatBox().startUp(name);
     }
     
@@ -133,7 +126,7 @@ public class BeatBox {
         //buttonBox.add(save);
         //buttonBox.add(restore);
         
-        // Messages        
+        // Messages
         incomingList = new JList();
         incomingList.addListSelectionListener(new MyListSelectionListener());
         incomingList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
